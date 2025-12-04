@@ -1,0 +1,13 @@
+# Docker configuration for apk-secure
+# Paths are empty to allow auto-detection via ANDROID_HOME
+virustotal:
+    api_key: "your_virustotal_api_key"
+sign:
+    keystore_path: "config/release.keystore"
+    keystore_pass: "StorePassword123!"
+    alias: "release_key"
+    alias_pass: "StorePassword123!"
+    zipalign_path: ""
+    apksigner_path: ""
+proguard:
+    android_jar_path: ""

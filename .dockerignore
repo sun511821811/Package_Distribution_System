@@ -1,0 +1,14 @@
+venv/
+__pycache__/
+*.pyc
+.git/
+.gitignore
+.DS_Store
+test_output/
+temp_downloads/
+temp_work/
+temp_execution/
+temp_keystores/
+uploads/
+**/node_modules
+web/dist
