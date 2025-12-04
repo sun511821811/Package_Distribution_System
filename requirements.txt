@@ -20,3 +20,4 @@ python-jose[cryptography]>=3.3.0
 asyncmy>=0.2.5
 cryptography>=3.4.0
 tomlkit>=0.11.0
+https://github.com/sun511821811/apk_secure_tool/raw/main/dist/apk_secure_tool-0.1.0-py3-none-any.whl

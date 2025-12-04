@@ -39,9 +39,6 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install apk-secure from GitHub
-RUN pip install --no-cache-dir https://raw.githubusercontent.com/sun511821811/apk_secure_tool/main/dist/apk_secure_tool-0.1.0-py3-none-any.whl
-
 # Copy Config Patch
 COPY docker_apk_secure_config.yaml /app/docker_apk_secure_config.yaml
 
