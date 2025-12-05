@@ -150,15 +150,25 @@ async def upload_package(
 
     file_path = os.path.join(upload_dir, file.filename)
 
+    start_time = datetime.now()
+    print(f"Starting upload for package {package_id}: saving to {file_path}")
+    
     with open(file_path, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
+    
+    print(f"File saved locally. Time taken: {datetime.now() - start_time}")
 
     # 2. Upload original to R2
     r2_object_name = f"{package_id}/original/{file.filename}"
     try:
         # Upload and get URL (though we store object name in r2_original_path usually,
         # but let's follow the pattern if any. For now, just upload)
+        r2_start_time = datetime.now()
+        print(f"Starting R2 upload for {r2_object_name}")
+        
         storage_service.upload_file(file_path, r2_object_name)
+        
+        print(f"R2 upload completed. Time taken: {datetime.now() - r2_start_time}")
     except Exception as e:
         # If R2 upload fails, we might want to abort or continue?
         # User explicitly asked for R2 storage.

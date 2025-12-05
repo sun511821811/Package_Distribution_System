@@ -16,6 +16,7 @@ export const uploadPackage = async (formData: FormData) => {
         headers: {
             "Content-Type": "multipart/form-data",
         },
+        timeout: 600000, // 10 minutes
     });
 };
 
@@ -63,10 +64,14 @@ export const resumeScheduledTask = async (id: string) => {
     return api.post(`/admin/tasks/scheduled/${id}/resume`);
 };
 
-export const replaceOriginalPackage = async (id: string, formData: FormData) => {
+export const replaceOriginalPackage = async (
+    id: string,
+    formData: FormData
+) => {
     return api.post(`/admin/packages/${id}/replace-original`, formData, {
         headers: {
             "Content-Type": "multipart/form-data",
         },
+        timeout: 600000, // 10 minutes
     });
 };
